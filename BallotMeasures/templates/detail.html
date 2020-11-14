@@ -29,14 +29,17 @@
 <main class="mt-4 w-100">
 
     <div class="container text-center m-auto w-100">
-    <h1 class="display-3">{{ topic.title }}</h1>
-    <p>{{ topic.description }}</p>
+        <div class="jumbotron p-2">
+            <h1 class="display-3">{{ topic.title }}</h1>
+            <p>{{ topic.description }}</p>
+        </div>
+    
         <div class="d-inline-block w-auto">
             <ul class="nav nav-pills">
                 {% for group in topic.group_set.all %}
                     <li class="nav-item">
                         <a class="nav-link{% if group == topic.group_set.first %} active{% endif %}" data-toggle="pill"
-                           href="#{{ group.class_name }}">{{ group }}</a>
+                           href="#{{ group.class_name }}">{{ group.class_name }}</a>
                     </li>
                 {% endfor %}
             </ul>
