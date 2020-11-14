@@ -298,8 +298,18 @@ data = [
 
 for i in data:
     t = Topic(title=i['title'], description=i['description'])
-    # t.save()
+    t.save()
 
     for x in i['groups']:
-        p = x['poster']
-        g = Group(topic=t, poster=x[''])
+        p = 'https://exhibition-site-2020.mitchelllong2.repl.co' + x['poster'][2:]
+        g = Group(topic=t, poster=p, research=x['pdf'])
+        if x == i['groups'][0]:
+            g.class_name = 'Iguanas'
+        elif x == i['groups'][1]:
+            g.class_name = "Jaguars"
+
+        g.save()
+
+        for q in x['members']:
+            s = Student(group=g, first_name=q.split(' ')[0], last_initial=q.split(' ')[1][:1])
+            s.save()
