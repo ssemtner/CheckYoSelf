@@ -49,11 +49,13 @@
             {% for group in topic.group_set.all %}
                 <div class="tab-pane container {% if group == topic.group_set.first %}active{% else %}fade{% endif %}"
                      id="{{ group.class_name }}">
-                    <ul class="mt-2 justify-content-center list-group list-group-horizontal">
+                    <ul class="my-2 justify-content-center list-group list-group-horizontal">
                     {% for student in group.student_set.all %}
                         <li class="list-group-item">{{ student }}</li>
                     {% endfor %}
                     </ul>
+                    <a class="btn btn-success" href="{% url 'BallotMeasures:like' topic.id group.id %}">Like</a>
+                    <p>Likes: {{ group.likes }}</p>
                     <img class="img-fluid rounded m-4" src="{{ group.poster }}">
                 </div>
             {% endfor %}

@@ -14,6 +14,15 @@ class Group(models.Model):
     poster = models.URLField(max_length=200)
     research = models.URLField(max_length=200)
     class_name = models.CharField(max_length=50, default="na")
+    likes = models.IntegerField(default=0)
+
+    def like(self):
+        self.likes += 1
+        self.save()
+
+    def reset_likes(self):
+        self.likes = 0
+        self.save()
 
     def __str__(self):
         return self.class_name + ' ' + self.topic.title
