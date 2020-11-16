@@ -302,7 +302,7 @@ for i in data:
 
     for x in i['groups']:
         p = 'https://exhibition-site-2020.mitchelllong2.repl.co' + x['poster'][2:]
-        g = Group(topic=t, poster=p, research=x['pdf'])
+        g = Group(topic=t, poster=p, research=x['pdf'], likes=0)
         if x == i['groups'][0]:
             g.class_name = 'Iguanas'
         elif x == i['groups'][1]:

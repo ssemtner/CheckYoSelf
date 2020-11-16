@@ -20,10 +20,6 @@ class Group(models.Model):
         self.likes += 1
         self.save()
 
-    def reset_likes(self):
-        self.likes = 0
-        self.save()
-
     def __str__(self):
         return self.class_name + ' ' + self.topic.title
 
