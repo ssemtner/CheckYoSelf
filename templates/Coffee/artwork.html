@@ -24,11 +24,24 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
     <div class="navbar-nav">
-        <a class="nav-item nav-link" href="{% url 'Coffee:index' %}">Coffee</a>
+        <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+        <a class="nav-item nav-link active" href="{% url 'Coffee:index' %}">Coffee</a>
         <a class="nav-item nav-link" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
     </div>
 </nav>
 <div class="p-4"></div>
+
+<ul class="nav nav-pills m-3 p-3 justify-content-center">
+    <li class="nav-item px-1">
+        <a class="nav-link" href="{% url 'Coffee:index' %}">Home</a>
+    </li>
+    <li class="nav-item px-1">
+        <a class="nav-link active" href="{% url 'Coffee:artworkHome' %}">Artwork</a>
+    </li>
+    <li class="nav-item px-1">
+        <a class="nav-link" href="{% url 'Coffee:writtenPieceHome' %}">Written Pieces</a>
+    </li>
+</ul>
 
 <main class="mt-4 w-100">
     <div class="container text-center m-auto w-100">
