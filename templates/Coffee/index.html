@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="" name="description">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+
+    <title>Coffee - Check Yo Self</title>
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+</head>
+<body>
+
+{# Main nav for all pages #}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
+    <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="{% url 'Coffee:index' %}">Coffee</a>
+        <a class="nav-item nav-link" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
+    </div>
+</nav>
+<div class="p-4"></div>
+
+
+<div class="container">
+    <nav>
+        <ul class="nav nav-pills m-3 p-3 justify-content-center">
+            <li class="nav-item px-1">
+                <a class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="{% url 'Coffee:artworkHome' %}">Artwork</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="{% url 'Coffee:writtenPieceHome' %}">Written Pieces</a>
+            </li>
+        </ul>
+    </nav>
+    <header class="jumbotron px-md-5 w-75 mx-auto my-4 shadow-sm">
+        <div class="px-md-5">
+            <div class="row">
+                <div class="col text-left">
+                    <h1 class="font-weight-light text-dark">High Tech High Mesa 2020</h1>
+                    <h3 class="font-weight-light text-muted">Sophomore Coffee Talk</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a class="shadow btn btn-primary mt-3" href="{% url 'Coffee:artworkHome' %}">Our Artwork</a>
+                    <a class="shadow btn btn-primary mt-3" href="{% url 'Coffee:writtenPieceHome' %}">Written pieces</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="bg-light w-75 m-auto p-3 rounded shadow">
+        <div class="row">
+            <div class="col m-5 rounded p-4">
+                <h1>Coffee Artworks</h1>
+                <h4 class="font-weight-light">Student Name</h4>
+                <p>Cras porttitor eu magna a cursus. Donec dignissim aliquet dapibus. Sed varius, odio in maximus
+                    vehicula, massa ex sollicitudin dui, vitae vulputate ligula mi elementum nisi. Ut placerat diam sed
+                    massa fringilla, quis tempus sem bibendum. Morbi pellentesque justo et ipsum gravida, sodales
+                    pretium erat posuere. Integer enim urna, vulputate et malesuada id, dignissim in mi. Aenean ornare
+                    odio non vulputate cursus. Vivamus sit amet orci non ligula euismod pharetra. Sed facilisis diam a
+                    urna maximus fringilla. Nulla facilisi. Mauris vulputate tristique ante, ut aliquam neque congue eu.
+                    Vestibulum dui risus, cursus quis fringilla nec, gravida lobortis felis.</p>
+                <a href="{% url 'Coffee:artworkHome' %}" class="shadow btn btn-info m-auto">Let's Go!</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m-5 rounded p-4">
+                <h1>Written Pieces</h1>
+                <h4 class="font-weight-light">Student Name</h4>
+                <p>Cras porttitor eu magna a cursus. Donec dignissim aliquet dapibus. Sed varius, odio in maximus
+                    vehicula, massa ex sollicitudin dui, vitae vulputate ligula mi elementum nisi. Ut placerat diam sed
+                    massa fringilla, quis tempus sem bibendum. Morbi pellentesque justo et ipsum gravida, sodales
+                    pretium erat posuere. Integer enim urna, vulputate et malesuada id, dignissim in mi. Aenean ornare
+                    odio non vulputate cursus. Vivamus sit amet orci non ligula euismod pharetra. Sed facilisis diam a
+                    urna maximus fringilla. Nulla facilisi. Mauris vulputate tristique ante, ut aliquam neque congue eu.
+                    Vestibulum dui risus, cursus quis fringilla nec, gravida lobortis felis.</p>
+                <a href="{% url 'Coffee:writtenPieceHome' %}" class="shadow btn btn-info m-auto">Let's Go!</a>
+            </div>
+        </div>
+    </main>
+</div>
+
+{# Footer that goes on every page #}
+<footer class="mt-5">
+    <div class="container mt-5 mb-5">
+        <a href="#" class="float-right"><p class="text-primary">Back To Top</p></a>
+        <p class="m-3">Created by Mitchell L. and Scott S.</p>
+        <p class="m-3">Created Using
+            <a href="https://www.djangoproject.com/" target="_blank" class="d-inline">Django</a>
+            and <a href="https://getbootstrap.com/" target="_blank" class="d-inline">Bootstrap</a>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

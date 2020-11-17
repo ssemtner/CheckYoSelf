@@ -5,13 +5,13 @@ from .models import Topic, Group
 def index(request):
     topic_list = Topic.objects.order_by('title')
     context = {'topic_list': topic_list}
-    return render(request, 'index.html', context)
+    return render(request, 'BallotMeasures/index.html', context)
 
 
 def detail(request, topic_id):
     topic = get_object_or_404(Topic, pk=topic_id)
     context = {'topic': topic}
-    return render(request, 'detail.html', context)
+    return render(request, 'BallotMeasures/detail.html', context)
 
 
 def like(request, topic_id, group_id):

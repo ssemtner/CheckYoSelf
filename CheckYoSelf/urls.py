@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from . import views
+
 urlpatterns = [
-    path('BallotMeasures/', include('BallotMeasures.urls')),
+    # path('BallotMeasures/', include('BallotMeasures.urls')),
     path('ballotmeasures/', include('BallotMeasures.urls')),
+    path('coffee/', include('Coffee.urls')),
+    # path('Coffee/', include('Coffee.urls')),
     path('admin/', admin.site.urls),
+    path('', views.index, name='home')
 ]
