@@ -34,6 +34,9 @@
 <h1 class="jumbotron text-center">Ballot Measures</h1>
 
 <main>
+    <div>
+        <a href="{% url 'home' %}" class="btn btn-secondary float-left m-3 ml-5">Go Back</a>
+    </div>
     <div class="container">
         <div class="row">
             {% for topic in topic_list %}

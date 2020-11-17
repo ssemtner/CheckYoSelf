@@ -32,23 +32,27 @@
 <div class="p-4"></div>
 
 <main class="mt-4 w-100">
+    <div>
+        <a href="{% url 'BallotMeasures:index' %}" class="btn btn-secondary float-left m-3 ml-5">Go Back</a>
+    </div>
 
     <div class="container text-center m-auto w-100">
         <div class="jumbotron p-2">
             <h1 class="display-3">{{ topic.title }}</h1>
             <p>{{ topic.description }}</p>
+            <div class="d-inline-block w-auto">
+                <ul class="nav nav-pills">
+                    {% for group in topic.group_set.all %}
+                        <li class="nav-item">
+                            <a class="nav-link{% if group == topic.group_set.first %} active{% endif %}" data-toggle="pill"
+                               href="#{{ group.class_name }}">{{ group.class_name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
 
-        <div class="d-inline-block w-auto">
-            <ul class="nav nav-pills">
-                {% for group in topic.group_set.all %}
-                    <li class="nav-item">
-                        <a class="nav-link{% if group == topic.group_set.first %} active{% endif %}" data-toggle="pill"
-                           href="#{{ group.class_name }}">{{ group.class_name }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
+        
 
         <div class="tab-content">
             {% for group in topic.group_set.all %}
@@ -59,11 +63,20 @@
                             <li class="list-group-item">{{ student }}</li>
                         {% endfor %}
                     </ul>
-                    <a class="btn btn-success" href="{% url 'BallotMeasures:like' topic.id group.id %}">Like</a>
-                    <p>Likes: {{ group.likes }}</p>
-                    <img class="img-fluid rounded m-4" src="{{ group.poster }}">
+                    <div class="row w-25 mx-auto mt-3">
+                        <div class="col-sm my-auto">
+                            <p class="my-auto">Likes: {{ group.likes }}</p>
+                        </div>
+                        <div class="col-sm">
+                            <a class="btn btn-success" href="{% url 'BallotMeasures:like' topic.id group.id %}">Like</a>
+                        </div>
+                    </div>
+                    <img class="img-fluid rounded mb-5" src="{{ group.poster }}">
                 </div>
             {% endfor %}
+        </div>
+        <div>
+            <a href="{% url 'BallotMeasures:index' %}" class="btn btn-secondary d-block">Go Back</a>
         </div>
     </div>
 </main>

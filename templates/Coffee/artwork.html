@@ -31,6 +31,10 @@
 </nav>
 <div class="p-4"></div>
 
+<div>
+    <a href="{% url 'Coffee:artworkHome' %}" class="btn btn-secondary float-left m-3 ml-5">Go Back</a>
+</div>
+
 <ul class="nav nav-pills m-3 p-3 justify-content-center">
     <li class="nav-item px-1">
         <a class="nav-link" href="{% url 'Coffee:index' %}">Home</a>
@@ -41,6 +45,9 @@
     <li class="nav-item px-1">
         <a class="nav-link" href="{% url 'Coffee:writtenPieceHome' %}">Written Pieces</a>
     </li>
+    <li class="nav-item px-1">
+        <a class="nav-link" href="{% url 'home' %}">Main Page</a>
+    </li>
 </ul>
 
 <main class="mt-4 w-100">
@@ -50,18 +57,26 @@
             <h1 class="display-3">{{ artwork.title }}</h1>
         </div>
 
-        {# Likes #}
-        <a class="btn btn-success" href="{% url 'Coffee:artworkLike' artwork.id %}">Like</a>
-        <p>Likes: {{ artwork.likes }}</p>
-
         {# Image #}
-        <img class="img-fluid rounded m-4" src="{{ artwork.image }}" alt="Artwork Image">
+        <img class="img-fluid rounded mb-4" src="{{ artwork.image }}" alt="Artwork Image">
+
+        
 
         {# Author #}
         <div class="container w-25">
             <ul class="my-2 justify-content-center list-group">
                 <li class="list-group-item">{{ artwork.author }}</li>
             </ul>
+        </div>
+
+        {# Likes #}
+        <div class="row w-25 mx-auto mt-3">
+            <div class="col-sm my-auto">
+                <p class="my-auto">Likes: {{ artwork.likes }}</p>
+            </div>
+            <div class="col-sm">
+                <a class="btn btn-success" href="{% url 'Coffee:artworkLike' artwork.id %}">Like</a>
+            </div>
         </div>
 
         {# Description #}
