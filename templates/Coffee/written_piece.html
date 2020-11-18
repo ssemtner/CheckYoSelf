@@ -31,24 +31,26 @@
 </nav>
 <div class="p-4"></div>
 
-<div>
-    <a href="{% url 'Coffee:writtenPieceHome' %}" class="btn btn-secondary float-left m-3 ml-5">Go Back</a>
-</div>
+<div class="row">
+    <div class="col">
+        <a href="{% url 'Coffee:writtenPieceHome' %}" class="btn btn-secondary float-left m-3 ml-5">Go Back</a>
+    </div>
 
-<ul class="nav nav-pills m-3 p-3 justify-content-center">
-    <li class="nav-item px-1">
-        <a class="nav-link" href="{% url 'Coffee:index' %}">Home</a>
-    </li>
-    <li class="nav-item px-1">
-        <a class="nav-link" href="{% url 'Coffee:artworkHome' %}">Artwork</a>
-    </li>
-    <li class="nav-item px-1">
-        <a class="nav-link active" href="{% url 'Coffee:writtenPieceHome' %}">Written Pieces</a>
-    </li>
-    <li class="nav-item px-1">
-        <a class="nav-link" href="{% url 'home' %}">Main Page</a>
-    </li>
-</ul>
+    <div class="col-center">
+        <ul class="nav nav-pills m-3 p-3 justify-content-center">
+            <li class="nav-item px-1">
+                <a class="nav-link" href="{% url 'Coffee:index' %}">Home</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="{% url 'Coffee:artworkHome' %}">Artwork</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link active" href="{% url 'Coffee:writtenPieceHome' %}">Written Pieces</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col"></div>
+</div>
 
 <main class="mt-4 w-100">
     <div class="container text-center m-auto w-100">

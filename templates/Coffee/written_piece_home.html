@@ -34,44 +34,45 @@
 </nav>
 <div class="p-4"></div>
 
-<div>
-    <a href="{% url 'Coffee:index' %}" class="btn btn-secondary float-left m-3 ml-5">Go Back</a>
-</div>
+<div class="row">
+    <div class="col">
+        <a href="{% url 'Coffee:index' %}" class="btn btn-secondary float-left m-3 ml-5">Go Back</a>
+    </div>
 
-<div>
-    <nav>
+    <div class="col-center">
         <ul class="nav nav-pills m-3 p-3 justify-content-center">
             <li class="nav-item px-1">
                 <a class="nav-link" href="{% url 'Coffee:index' %}">Home</a>
             </li>
             <li class="nav-item px-1">
-                <a class="nav-link">Artwork</a>
+                <a class="nav-link" href="{% url 'Coffee:artworkHome' %}">Artwork</a>
             </li>
             <li class="nav-item px-1">
                 <a class="nav-link active" href="{% url 'Coffee:writtenPieceHome' %}">Written Pieces</a>
             </li>
         </ul>
-    </nav>
+    </div>
+    <div class="col"></div>
+</div>
 
-    <main>
-        <div class="mx-4 row">
-            {% for written in written_list %}
-                <div class="m-auto">
-                    <div class="card shadow m-3">
-                        <img src="{{ written.thumbnail }}" class="card-img-top img-fluid" alt="Written Piece Photo"
-                             style="max-width: 300px;">
-                        <div class="card-body">
-                            <h3 class="card-title text-center">{{ written.title }}</h3>
-                            <h5 class="card-subtitle font-weight-light text-center">{{ written.name }}</h5>
-                            <a href="{% url 'Coffee:writtenPiece' written.id %}" class="btn btn-primary d-block mt-4">Read
-                                More</a>
-                        </div>
+<main>
+    <div class="mx-4 row">
+        {% for written in written_list %}
+            <div class="m-auto">
+                <div class="card shadow m-3">
+                    <img src="{{ written.thumbnail }}" class="card-img-top img-fluid" alt="Written Piece Photo"
+                         style="max-width: 300px;">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">{{ written.title }}</h3>
+                        <h5 class="card-subtitle font-weight-light text-center">{{ written.name }}</h5>
+                        <a href="{% url 'Coffee:writtenPiece' written.id %}" class="btn btn-primary d-block mt-4">Read
+                            More</a>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
-    </main>
-</div>
+            </div>
+        {% endfor %}
+    </div>
+</main>
 
 {# Footer that goes on every page #}
 <footer class="mt-5">
