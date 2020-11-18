@@ -33,8 +33,12 @@
 </nav>
 <div class="p-4"></div>
 
-<div class="row">
+<div class="row w-100">
     <div class="col">
+        <a href="{% url 'home' %}" class="btn btn-secondary float-left m-3 ml-5 mt-5">Home</a>
+    </div>
+
+    <div class="col-center">
         <ul class="nav nav-pills m-3 p-3 justify-content-center">
             <li class="nav-item px-1">
                 <a class="nav-link active" href="{% url 'Coffee:index' %}">Home</a>
@@ -47,6 +51,7 @@
             </li>
         </ul>
     </div>
+    <div class="col"></div>
 </div>
 
 <header class="jumbotron px-md-5 w-75 mx-auto my-4 shadow-sm">

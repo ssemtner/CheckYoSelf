@@ -31,9 +31,9 @@
 </nav>
 <div class="p-4"></div>
 
-<div class="row">
+<div class="row w-100">
     <div class="col">
-        <a href="{% url 'Coffee:writtenPieceHome' %}" class="btn btn-secondary float-left m-3 ml-5">Go Back</a>
+        <a href="{% url 'Coffee:writtenPieceHome' %}" class="btn btn-secondary float-left m-3 ml-5 mt-5">Go Back</a>
     </div>
 
     <div class="col-center">
@@ -60,8 +60,9 @@
         </div>
 
         {# Text #}
-        <p class="text-left">{{ written.text }}</p>
-
+        <div class="m-2 mb-4 px-4 py-3 rounded">
+            <p class="text-left">{{ written.text }}</p>
+        </div>
 
         {# Author #}
         <div class="container w-25">
