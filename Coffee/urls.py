@@ -10,5 +10,5 @@ urlpatterns = [
     path('artwork/<int:artwork_id>/like', views.artwork_like, name='artworkLike'),
     path('written/', views.written_home, name='writtenPieceHome'),
     path('written/<int:written_id>', views.written, name='writtenPiece'),
-    path('written/<int:written_id>/like', views.written_like, name='writtenPieceLike')
+    path('written/<int:written_id>/like', views.written_like, name='writtenPieceLike'),
 ]

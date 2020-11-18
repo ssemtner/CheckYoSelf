@@ -24,5 +24,6 @@ urlpatterns = [
     path('coffee/', include('Coffee.urls')),
     # path('Coffee/', include('Coffee.urls')),
     path('admin/', admin.site.urls),
-    path('', views.index, name='home')
+    path('', views.index, name='home'),
+    path('captcha/', include('captcha.urls')),
 ]

@@ -72,14 +72,24 @@
         </div>
 
         {# Likes #}
-        <div class="row w-25 mx-auto mt-3">
+        <div class="row w-25 mx-auto mb-3">
             <div class="col-sm my-auto">
-                <p class="my-auto">Likes: {{ written.likes }}</p>
-            </div>
-            <div class="col-sm">
-                <a class="btn btn-success" href="{% url 'Coffee:writtenPieceLike' written.id %}">Like</a>
+                <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">Up Votes: {{ written.likes }}</p>
             </div>
         </div>
+
+        {# Add Like #}
+        <form action="{% url 'Coffee:writtenPieceLike' written.id %}" method="post" id="form">
+            {% csrf_token %}
+            <div class="row mx-auto justify-content-center">
+                <div class="px-1 my-auto">
+                    {{ form.captcha }}
+                </div>
+                <div class="px-1 my-auto">
+                    <input type="submit" value="Add Upvote" class="btn btn-success btn-sm">
+                </div>
+            </div>
+        </form>
     </div>
 </main>
 
