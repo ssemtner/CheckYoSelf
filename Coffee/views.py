@@ -26,7 +26,7 @@ def written(request, written_id):
 
 
 def written_home(request):
-    written_list = Artwork.objects.order_by('title')
+    written_list = WrittenPiece.objects.order_by('title')
     return render(request, 'Coffee/written_piece_home.html', {'written_list': written_list})
 
 
