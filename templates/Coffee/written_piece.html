@@ -71,14 +71,15 @@
             </ul>
         </div>
 
-        {# Likes #}
+        {# Upvotes #}
         <div class="row w-25 mx-auto mb-3">
             <div class="col-sm my-auto">
-                <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">Up Votes: {{ written.likes }}</p>
+                <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ written.likes }}
+                    Upvotes</p>
             </div>
         </div>
 
-        {# Add Like #}
+        {# Add Upvote #}
         <form action="{% url 'Coffee:writtenPieceLike' written.id %}" method="post" id="form">
             {% csrf_token %}
             <div class="row mx-auto justify-content-center">

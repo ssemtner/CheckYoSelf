@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .models import Artwork, WrittenPiece
 from .forms import CaptchaForm
+from .models import Artwork, WrittenPiece
+
 
 def index(request):
     return render(request, 'Coffee/index.html')
@@ -23,7 +24,7 @@ def artwork_like(request, artwork_id):
 
         if form.is_valid():
             get_object_or_404(Artwork, pk=artwork_id).like()
-            return redirect('Coffee:artwork', artwork_id=artwork_id)
+
     return redirect('Coffee:artwork', artwork_id=artwork_id)
 
 
@@ -43,5 +44,5 @@ def written_like(request, written_id):
 
         if form.is_valid():
             get_object_or_404(WrittenPiece, pk=written_id).like()
-            return redirect('Coffee:writtenPiece', written_id=written_id)
+
     return redirect('Coffee:writtenPiece', written_id=written_id)
