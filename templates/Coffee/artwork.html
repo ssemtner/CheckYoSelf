@@ -62,7 +62,6 @@
         {# Image #}
         <img class="img-fluid rounded mb-4" src="{{ artwork.image }}" alt="Artwork Image">
 
-        
 
         {# Author #}
         <div class="container w-25">
@@ -71,14 +70,15 @@
             </ul>
         </div>
 
-        {# Likes #}
+        {# Upvotes #}
         <div class="row w-25 mx-auto mb-3">
             <div class="col-sm my-auto">
-                <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">Up Votes: {{ artwork.likes }}</p>
+                <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ artwork.likes }}
+                    Upvotes</p>
             </div>
         </div>
 
-        {# Add Like #}
+        {# Add Upvote #}
         <form action="{% url 'Coffee:artworkLike' artwork.id %}" method="post" id="form">
             {% csrf_token %}
             <div class="row mx-auto justify-content-center">
