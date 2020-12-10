@@ -44,7 +44,8 @@
                 <ul class="nav nav-pills">
                     {% for group in topic.group_set.all %}
                         <li class="nav-item">
-                            <a class="nav-link{% if group == topic.group_set.first %} active{% endif %}" data-toggle="pill"
+                            <a class="nav-link{% if group == topic.group_set.first %} active{% endif %}"
+                               data-toggle="pill"
                                href="#{{ group.class_name }}">{{ group.class_name }}</a>
                         </li>
                     {% endfor %}
@@ -52,7 +53,6 @@
             </div>
         </div>
 
-        
 
         <div class="tab-content">
             {% for group in topic.group_set.all %}
@@ -63,20 +63,31 @@
                             <li class="list-group-item">{{ student }}</li>
                         {% endfor %}
                     </ul>
-                    <div class="row w-25 mx-auto mt-3">
+
+                    <img class="img-fluid rounded mb-5" src="{{ group.poster }}">
+
+                    {# Upvotes #}
+                    <div class="row w-25 mx-auto mb-3">
                         <div class="col-sm my-auto">
-                            <p class="my-auto">Likes: {{ group.likes }}</p>
-                        </div>
-                        <div class="col-sm">
-                            <a class="btn btn-success" href="{% url 'BallotMeasures:like' topic.id group.id %}">Like</a>
+                            <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ group.likes }}
+                                Upvotes</p>
                         </div>
                     </div>
-                    <img class="img-fluid rounded mb-5" src="{{ group.poster }}">
+
+                    {# Add Upvote #}
+                    <form action="{% url 'BallotMeasures:like' topic.id group.id %}" method="post" id="form">
+                        {% csrf_token %}
+                        <div class="row mx-auto justify-content-center">
+                            <div class="px-1 my-auto">
+                                {{ form.captcha }}
+                            </div>
+                            <div class="px-1 my-auto">
+                                <input type="submit" value="Add Upvote" class="btn btn-success btn-sm">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             {% endfor %}
-        </div>
-        <div>
-            <a href="{% url 'BallotMeasures:index' %}" class="btn btn-secondary d-block">Go Back</a>
         </div>
     </div>
 </main>
