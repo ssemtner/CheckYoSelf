@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'BallotMeasures',
+    'Chemicals',
     'Coffee',
     'captcha',
     'django.contrib.admin',

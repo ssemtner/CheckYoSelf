@@ -26,15 +26,15 @@
     <div class="navbar-nav">
         <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
         <a class="nav-item nav-link" href="{% url 'Coffee:index' %}">Coffee</a>
-        <a class="nav-item nav-link active" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
-        <a class="nav-item nav-link" href="{% url 'Chemicals:index' %}">Controversial Chemicals</a>
+        <a class="nav-item nav-link" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
+        <a class="nav-item nav-link active" href="{% url 'Chemicals:index' %}">Controversial Chemicals</a>
     </div>
 </nav>
 <div class="p-4"></div>
 
 <main class="mt-4 w-100">
     <div>
-        <a href="{% url 'BallotMeasures:index' %}" class="btn btn-secondary float-left m-3 ml-5">Go Back</a>
+        <a href="{% url 'Chemicals:index' %}" class="btn btn-secondary float-left m-3 ml-5">Go Back</a>
     </div>
 
     <div class="container text-center m-auto w-100">
@@ -76,7 +76,7 @@
                     </div>
 
                     {# Add Upvote #}
-                    <form action="{% url 'BallotMeasures:like' topic.id group.id %}" method="post" id="form">
+                    <form action="{% url 'Chemicals:like' topic.id group.id %}" method="post" id="form">
                         {% csrf_token %}
                         <div class="row mx-auto justify-content-center">
                             <div class="px-1 my-auto">
