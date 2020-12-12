@@ -12,18 +12,14 @@
 
     <title>Coffee - Check Yo Self</title>
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link rel="stylesheet" href="https://fuchsiaviciouskeygen.mitchelllong.repl.co/style.css">
 </head>
 <body>
 
 {# Main nav for all pages #}
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
     <div class="navbar-nav">
+        <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
         <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
         <a class="nav-item nav-link active" href="{% url 'Coffee:index' %}">Coffee</a>
         <a class="nav-item nav-link" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
@@ -61,39 +57,46 @@
         </div>
 
         {# Image #}
-        <img class="img-fluid rounded mb-4" src="{{ artwork.image }}" alt="Artwork Image">
+        <img class="img-fluid rounded w-100" src="{{ artwork.image }}" alt="Artwork Image">
 
 
-        {# Author #}
-        <div class="container w-25">
-            <ul class="my-2 justify-content-center list-group">
-                <li class="list-group-item">{{ artwork.author }}</li>
-            </ul>
-        </div>
-
-        {# Upvotes #}
-        <div class="row w-25 mx-auto mb-3">
-            <div class="col-sm my-auto">
-                <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ artwork.likes }}
-                    Upvotes</p>
+        {# Author, Upvotes #}
+        <div class="m-auto">
+            <div class="mt-2 bg-dark rounded">
+                <div class="d-flex justify-content-center flex-wrap p-4">
+                    <ul class="m-auto list-group">
+                        <li class="list-group-item">{{ artwork.author }}</li>
+                    </ul>
+                    <div class="m-auto">
+                        <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ artwork.likes }} Upvotes</p>
+                    </div>
+                </div>
+                <div class="mb-5 p-4">
+                    {# Add Upvote #}
+                    <form action="{% url 'Coffee:artworkLike' artwork.id %}" method="post" id="form">
+                        {% csrf_token %}
+                        <div class="row mx-auto justify-content-center">
+                            <div class="px-1 my-auto">
+                                {{ form.captcha }}
+                            </div>
+                            <div class="px-1 my-auto">
+                                <input type="submit" value="Add Upvote" class="btn btn-success btn-sm">
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-
-        {# Add Upvote #}
-        <form action="{% url 'Coffee:artworkLike' artwork.id %}" method="post" id="form">
-            {% csrf_token %}
-            <div class="row mx-auto justify-content-center">
-                <div class="px-1 my-auto">
-                    {{ form.captcha }}
-                </div>
-                <div class="px-1 my-auto">
-                    <input type="submit" value="Add Upvote" class="btn btn-success btn-sm">
-                </div>
-            </div>
-        </form>
 
         {# Description #}
-        <p class="p-2">{{ artwork.statement }}</p>
+        
+
+        <div class="flex main-element">
+            <div>
+              <h1>{{ artwork.title }}</h1>
+              <p class="p-2">{{ artwork.statement }}</p>
+            </div>
+        </div>
     </div>
 </main>
 

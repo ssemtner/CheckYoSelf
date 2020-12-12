@@ -20,16 +20,16 @@
 </head>
 <body>
 
-{# Main nav for all pages #}
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-        <a class="nav-item nav-link" href="{% url 'Coffee:index' %}">Coffee</a>
-        <a class="nav-item nav-link active" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
-        <a class="nav-item nav-link" href="{% url 'Chemicals:index' %}">Controversial Chemicals</a>
-    </div>
-</nav>
+    {# Main nav for all pages #}
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-nav">
+            <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
+            <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+            <a class="nav-item nav-link " href="{% url 'Coffee:index' %}">Coffee</a>
+            <a class="nav-item nav-link active" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
+            <a class="nav-item nav-link" href="{% url 'Chemicals:index' %}">Controversial Chemicals</a>
+        </div>
+    </nav>
 <div class="p-4"></div>
 
 <h1 class="jumbotron text-center">Ballot Measures</h1>

@@ -12,18 +12,14 @@
 
     <title>Coffee - Check Yo Self</title>
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link rel="stylesheet" href="https://fuchsiaviciouskeygen.mitchelllong.repl.co/style.css">
 </head>
 <body>
 
 {# Main nav for all pages #}
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
     <div class="navbar-nav">
+        <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
         <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
         <a class="nav-item nav-link active" href="{% url 'Coffee:index' %}">Coffee</a>
         <a class="nav-item nav-link" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
@@ -65,33 +61,33 @@
             <p class="text-left">{{ written.text }}</p>
         </div>
 
-        {# Author #}
-        <div class="container w-25">
-            <ul class="my-2 justify-content-center list-group">
-                <li class="list-group-item">{{ written.author }}</li>
-            </ul>
-        </div>
-
-        {# Upvotes #}
-        <div class="row w-25 mx-auto mb-3">
-            <div class="col-sm my-auto">
-                <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ written.likes }}
-                    Upvotes</p>
+        {# Author, Upvotes #}
+        <div class="m-auto">
+            <div class="mt-2 bg-dark rounded">
+                <div class="d-flex justify-content-center flex-wrap p-4">
+                    <ul class="m-auto list-group">
+                        <li class="list-group-item">{{ written.author }}</li>
+                    </ul>
+                    <div class="m-auto">
+                        <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ written.likes }} Upvotes</p>
+                    </div>
+                </div>
+                <div class="mb-5 p-4">
+                    {# Add Upvote #}
+                    <form action="{% url 'Coffee:writtenPieceLike' written.id %}" method="post" id="form">
+                        {% csrf_token %}
+                        <div class="row mx-auto justify-content-center">
+                            <div class="px-1 my-auto">
+                                {{ form.captcha }}
+                            </div>
+                            <div class="px-1 my-auto">
+                                <input type="submit" value="Add Upvote" class="btn btn-success btn-sm">
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-
-        {# Add Upvote #}
-        <form action="{% url 'Coffee:writtenPieceLike' written.id %}" method="post" id="form">
-            {% csrf_token %}
-            <div class="row mx-auto justify-content-center">
-                <div class="px-1 my-auto">
-                    {{ form.captcha }}
-                </div>
-                <div class="px-1 my-auto">
-                    <input type="submit" value="Add Upvote" class="btn btn-success btn-sm">
-                </div>
-            </div>
-        </form>
     </div>
 </main>
 
