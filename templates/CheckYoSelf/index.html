@@ -36,43 +36,59 @@
                     <h2 class="font-weight-light">Our Projects throughout the semester</h2>
                     <div class="mx-auto d-inline-block">
                         <div class="row">
-                                <a href="#main" class="btn btn-secondary my-4 mx-3 d-block">View Projects</a>
+                            <a href="#main" class="btn btn-secondary my-4 mx-3 d-block">View Projects</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main id="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col m-auto">
+                        <div class="card shadow">
+                            <img src="https://raw.githubusercontent.com/mitchell-lng/Exhibition-Site-2020/master/assets/website/ballotmeasuresposters.jpg"
+                                 alt="Image" class="card-img-top">
+                            <div class="card-body">
+                                <h1 class="text-center font-weight-light">Ballot Measure Project</h1>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <a class="btn btn-primary d-block" href="{% url 'BallotMeasures:index' %}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col m-auto">
+                        <div class="card shadow">
+                            <img src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg" alt="Image"
+                                 class="card-img-top">
+                            <div class="card-body">
+                                <h1 class="text-center font-weight-light">Coffee Project</h1>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <a class="btn btn-primary d-block" href="{% url 'Coffee:index' %}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col m-auto">
+                        <div class="card shadow">
+                            <img src="https://exhibition-site-2020.mitchelllong2.repl.co/assets/website/chemicalposters.jpg"
+                                 alt="Image" class="card-img-top">
+                            <div class="card-body">
+                                <h1 class="text-center font-weight-light">Controversial Chemicals Project</h1>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <a class="btn btn-primary d-block" href="{% url 'Chemicals:index' %}">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </header>
+            </div>
+        </main>
 
-            <main id="main">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4 m-auto">
-                            <div class="card mb-4 shadow">
-                                <img src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg" alt="Image" class="card-img-top">
-                                <div class="card-body">
-                                    <h1 class="text-center font-weight-light">Coffee Project</h1>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <a class="btn btn-primary d-block" href="/coffee/">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 m-auto">
-                            <div class="card mb-4 shadow">
-                                <img src="https://raw.githubusercontent.com/mitchell-lng/Exhibition-Site-2020/master/assets/website/ballotmeasuresposters.jpg" alt="Image" class="card-img-top">
-                                <div class="card-body">
-                                    <h1 class="text-center font-weight-light">Ballot Measure Project</h1>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <a class="btn btn-primary d-block" href="/ballotmeasures/">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-
-            <footer class="mt-5">
-                <div class="container mt-5 mb-5">
-                    <a href="#" class="float-right"><p class="text-primary">Back To Top</p></a>
+        <footer class="mt-5">
+            <div class="container mt-5 mb-5">
+                <a href="#" class="float-right"><p class="text-primary">Back To Top</p></a>
                     <p class="m-3">Created by Mitchell L. and Scott S.</p>
                     <p class="m-3">Created Using <a href="https://www.djangoproject.com/" target="_blank" class="d-inline">Django</a> and <a href="https://getbootstrap.com/" target="_blank" class="d-inline">Bootstrap</a></p>
                 </div>
