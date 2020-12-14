@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'Chemicals',
     'Coffee',
     'captcha',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -119,7 +120,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -127,3 +127,12 @@ STATIC_URL = '/static/'
 
 # Activate Django-Heroku
 django_heroku.settings(locals())
+
+# TinyMCE Config
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "320px",
+    "width": "960px",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "code image",
+    "toolbar": "undo redo | bold italic underline strikethrough | image",
+}
