@@ -68,12 +68,13 @@
                         <li class="list-group-item">{{ artwork.author }}</li>
                     </ul>
                     <div class="m-auto">
-                        <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ artwork.likes }} Upvotes</p>
+                        <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ artwork.likes }}
+                            Upvotes</p>
                     </div>
                 </div>
                 <div class="mb-5 p-4">
                     {# Add Upvote #}
-                    <form action="{% url 'Coffee:artworkLike' artwork.id %}" method="post" id="form">
+                    <form action="{% url 'Coffee:artworkLike' artwork.id %}" method="post" id="likeForm">
                         {% csrf_token %}
                         <div class="row mx-auto justify-content-center">
                             <div class="px-1 my-auto">
@@ -89,14 +90,26 @@
         </div>
 
         {# Description #}
-        
-
         <div class="flex main-element">
             <div>
-              <h1>{{ artwork.title }}</h1>
-              <p class="p-2">{{ artwork.statement }}</p>
+                <h1>{{ artwork.title }}</h1>
+                <p class="p-2">{{ artwork.statement }}</p>
             </div>
         </div>
+    </div>
+
+    {# Comments #}
+    <div>
+        <form action="{% url 'Coffee:artworkComment' artwork.id %}" method="post" id="commentForm">
+            {% csrf_token %}
+            {{ commentForm }}
+            <input type="submit" value="Add Comment" class="btn btn-success btn-sm">
+        </form>
+        <ul>
+            {% for comment in comments_ordered %}
+                <ul><b>By: {{ comment.author }}</b> {{ comment.body }}</ul>
+            {% endfor %}
+        </ul>
     </div>
 </main>
 

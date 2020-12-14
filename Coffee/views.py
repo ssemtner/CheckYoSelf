@@ -14,8 +14,9 @@ def artwork_home(request):
 
 
 def artwork(request, artwork_id):
-    context = {'artwork': get_object_or_404(Artwork, pk=artwork_id), 'likeForm': CaptchaForm(),
-               'commentForm': CommentForm}
+    art = get_object_or_404(Artwork, pk=artwork_id)
+    context = {'artwork': art, 'likeForm': CaptchaForm(),
+               'commentForm': CommentForm, 'comments_ordered': art.comments.all().order_by('-timestamp')}
     return render(request, 'Coffee/artwork.html', context)
 
 
