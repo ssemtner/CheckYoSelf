@@ -17,6 +17,16 @@ class Artwork(models.Model):
         return self.title
 
 
+class ArtworkComment(models.Model):
+    artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE, related_name='comments')
+    timestamp = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=50)
+    body = models.CharField(max_length=200)
+
+    def __str__(self):
+        return 'Artwork Comment {} by {}'.format(self.body, self.author)
+
+
 class WrittenPiece(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
@@ -30,3 +40,13 @@ class WrittenPiece(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class WrittenPieceComment(models.Model):
+    written_piece = models.ForeignKey(WrittenPiece, on_delete=models.CASCADE, related_name='comments')
+    timestamp = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=50)
+    body = models.CharField(max_length=200)
+
+    def __str__(self):
+        return 'Written Piece Comment {} by {}'.format(self.body, self.author)

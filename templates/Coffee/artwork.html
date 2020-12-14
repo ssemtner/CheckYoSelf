@@ -80,11 +80,11 @@
         </div>
 
         {# Add Upvote #}
-        <form action="{% url 'Coffee:artworkLike' artwork.id %}" method="post" id="form">
+        <form action="{% url 'Coffee:artworkLike' artwork.id %}" method="post" id="likeForm">
             {% csrf_token %}
             <div class="row mx-auto justify-content-center">
                 <div class="px-1 my-auto">
-                    {{ form.captcha }}
+                    {{ likeForm.captcha }}
                 </div>
                 <div class="px-1 my-auto">
                     <input type="submit" value="Add Upvote" class="btn btn-success btn-sm">
@@ -94,6 +94,26 @@
 
         {# Description #}
         <p class="p-2">{{ artwork.statement }}</p>
+
+        {# Comments #}
+        <div class="m-4">
+            {# Add Comment #}
+            <form action="{% url 'Coffee:artworkComment' artwork.id %}" method="post" id="commentForm">
+                {% csrf_token %}
+                {{ commentForm }}
+                <div class="">
+                    <input type="submit" value="Add Comment" class="btn btn-success btn-sm">
+                </div>
+            </form>
+        </div>
+
+        {# Display Comments #}
+        <div>
+            {% for comment in artwork.arwork_comment_list %}
+                <p>{{ comment }}</p>
+            {% endfor %}
+        </div>
+    </div>
     </div>
 </main>
 

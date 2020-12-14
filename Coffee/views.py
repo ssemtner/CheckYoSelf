@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .forms import CaptchaForm
+from .forms import CaptchaForm, CommentForm
 from .models import Artwork, WrittenPiece
 
 
@@ -14,7 +14,8 @@ def artwork_home(request):
 
 
 def artwork(request, artwork_id):
-    context = {'artwork': get_object_or_404(Artwork, pk=artwork_id), 'form': CaptchaForm()}
+    context = {'artwork': get_object_or_404(Artwork, pk=artwork_id), 'likeForm': CaptchaForm(),
+               'commentForm': CommentForm}
     return render(request, 'Coffee/artwork.html', context)
 
 
@@ -24,6 +25,16 @@ def artwork_like(request, artwork_id):
 
         if form.is_valid():
             get_object_or_404(Artwork, pk=artwork_id).like()
+
+    return redirect('Coffee:artwork', artwork_id=artwork_id)
+
+
+def artwork_comment(request, artwork_id):
+    if request.POST:
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            print(form.cleaned_data)
 
     return redirect('Coffee:artwork', artwork_id=artwork_id)
 
