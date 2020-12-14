@@ -109,11 +109,10 @@
 
         {# Display Comments #}
         <div>
-            {% for comment in artwork.arwork_comment_list %}
+            {% for comment in artwork.comments.all %}
                 <p>{{ comment }}</p>
             {% endfor %}
         </div>
-    </div>
     </div>
 </main>
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import CaptchaForm, CommentForm
-from .models import Artwork, WrittenPiece
+from .models import Artwork, WrittenPiece, ArtworkComment
 
 
 def index(request):
@@ -35,6 +35,9 @@ def artwork_comment(request, artwork_id):
 
         if form.is_valid():
             print(form.cleaned_data)
+            print(get_object_or_404(Artwork, pk=artwork_id))
+            ArtworkComment(artwork=get_object_or_404(Artwork, pk=artwork_id), author=form.cleaned_data['author'],
+                           body=form.cleaned_data['comment']).save()
 
     return redirect('Coffee:artwork', artwork_id=artwork_id)
 
