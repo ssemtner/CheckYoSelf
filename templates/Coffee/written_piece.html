@@ -69,16 +69,17 @@
                         <li class="list-group-item">{{ written.author }}</li>
                     </ul>
                     <div class="m-auto">
-                        <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ written.likes }} Upvotes</p>
+                        <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ written.likes }}
+                            Upvotes</p>
                     </div>
                 </div>
                 <div class="mb-5 p-4">
                     {# Add Upvote #}
-                    <form action="{% url 'Coffee:writtenPieceLike' written.id %}" method="post" id="form">
+                    <form action="{% url 'Coffee:writtenPieceLike' written.id %}" method="post" id="likeForm">
                         {% csrf_token %}
                         <div class="row mx-auto justify-content-center">
                             <div class="px-1 my-auto">
-                                {{ form.captcha }}
+                                {{ commentForm.captcha }}
                             </div>
                             <div class="px-1 my-auto">
                                 <input type="submit" value="Add Upvote" class="btn btn-success btn-sm">
@@ -87,6 +88,19 @@
                     </form>
                 </div>
             </div>
+        </div>
+        {# Comments #}
+        <div class="m-4">
+            <form action="{% url 'Coffee:writtenPieceComment' written.id %}" method="post" id="commentForm">
+                {% csrf_token %}
+                {{ commentForm }}
+                <input type="submit" value="Add Comment" class="btn btn-success btn-sm">
+            </form>
+            <ul>
+                {% for comment in comments_ordered %}
+                    <ul><b>By: {{ comment.author }}</b> {{ comment.body }}</ul>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </main>

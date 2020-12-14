@@ -133,6 +133,7 @@ TINYMCE_DEFAULT_CONFIG = {
     "height": "320px",
     "width": "960px",
     "menubar": "file edit view insert format tools table help",
-    "plugins": "code image",
-    "toolbar": "undo redo | bold italic underline strikethrough | image",
+    "plugins": "code image paste",
+    "toolbar": "undo redo | bold italic underline strikethrough | image | code",
+    "paste_data_images": "true",
 }
