@@ -2,11 +2,10 @@ from django.db import models
 from tinymce.models import HTMLField
 
 
-class Artwork(models.Model):
+class Recipe(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     likes = models.IntegerField(default=0)
-    statement = HTMLField()
     image = models.URLField(max_length=200)
     thumbnail = models.URLField(max_length=200)
 
@@ -18,8 +17,8 @@ class Artwork(models.Model):
         return self.title
 
 
-class ArtworkComment(models.Model):
-    artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE, related_name='comments')
+class RecipeComment(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='comments')
     timestamp = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=50)
     body = models.CharField(max_length=200)

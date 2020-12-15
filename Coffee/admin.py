@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Artwork, WrittenPiece, ArtworkComment
+from .models import Recipe, WrittenPiece, RecipeComment, WrittenPieceComment
 
 
 def reset_likes(queryset):
@@ -27,6 +27,7 @@ class StudentAdmin(admin.ModelAdmin):
     actions = [change_group_jaguars, change_group_iguanas]
 
 
-admin.site.register(Artwork, LikesAdmin)
+admin.site.register(Recipe, LikesAdmin)
 admin.site.register(WrittenPiece, LikesAdmin)
-admin.site.register(ArtworkComment)
+admin.site.register(RecipeComment)
+admin.site.register(WrittenPieceComment)

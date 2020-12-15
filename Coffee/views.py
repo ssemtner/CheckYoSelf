@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from profanityfilter import ProfanityFilter
 
 from .forms import CaptchaForm, CommentForm
-from .models import Artwork, ArtworkComment, WrittenPiece, WrittenPieceComment
+from .models import Recipe, RecipeComment, WrittenPiece, WrittenPieceComment
 
 pf = ProfanityFilter(extra_censor_list=open('Coffee/profanity_list.txt', 'r').read().split('\n'))
 
@@ -11,38 +11,38 @@ def index(request):
     return render(request, 'Coffee/index.html')
 
 
-def artwork_home(request):
-    artwork_list = Artwork.objects.order_by('title')
-    return render(request, 'Coffee/artwork_home.html', {'artwork_list': artwork_list})
+def recipe_home(request):
+    recipe_list = Recipe.objects.order_by('title')
+    return render(request, 'Coffee/recipe_home.html', {'recipe_list': recipe_list})
 
 
-def artwork(request, artwork_id):
-    art = get_object_or_404(Artwork, pk=artwork_id)
-    context = {'artwork': art, 'likeForm': CaptchaForm(),
-               'commentForm': CommentForm, 'comments_ordered': art.comments.all().order_by('-timestamp')}
-    return render(request, 'Coffee/artwork.html', context)
+def recipe(request, recipe_id):
+    obj = get_object_or_404(Recipe, pk=recipe_id)
+    context = {'recipe': obj, 'likeForm': CaptchaForm(),
+               'commentForm': CommentForm, 'comments_ordered': obj.comments.all().order_by('-timestamp')}
+    return render(request, 'Coffee/recipe.html', context)
 
 
-def artwork_like(request, artwork_id):
+def recipe_like(request, recipe_id):
     if request.POST:
         form = CaptchaForm(request.POST)
 
         if form.is_valid():
-            get_object_or_404(Artwork, pk=artwork_id).like()
+            get_object_or_404(Recipe, pk=recipe_id).like()
 
-    return redirect('Coffee:artwork', artwork_id=artwork_id)
+    return redirect('Coffee:recipe', recipe_id=recipe_id)
 
 
-def artwork_comment(request, artwork_id):
+def recipe_comment(request, recipe_id):
     if request.POST:
         form = CommentForm(request.POST)
 
         if form.is_valid():
             if not (pf.is_profane(form.cleaned_data['author']) or pf.is_profane(form.cleaned_data['comment'])):
-                ArtworkComment(artwork=get_object_or_404(Artwork, pk=artwork_id), author=form.cleaned_data['author'],
-                               body=form.cleaned_data['comment']).save()
+                RecipeComment(recipe=get_object_or_404(Recipe, pk=recipe_id), author=form.cleaned_data['author'],
+                              body=form.cleaned_data['comment']).save()
 
-    return redirect('Coffee:artwork', artwork_id=artwork_id)
+    return redirect('Coffee:recipe', recipe_id=recipe_id)
 
 
 def written(request, written_id):

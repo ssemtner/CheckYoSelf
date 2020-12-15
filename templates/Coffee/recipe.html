@@ -30,7 +30,7 @@
 
 <div class="row w-100">
     <div class="col">
-        <a href="{% url 'Coffee:artworkHome' %}" class="btn btn-secondary float-left m-3 ml-5 mt-5">Go Back</a>
+        <a href="{% url 'Coffee:recipeHome' %}" class="btn btn-secondary float-left m-3 ml-5 mt-5">Go Back</a>
     </div>
 
     <div class="col-center">
@@ -39,7 +39,7 @@
                 <a class="nav-link" href="{% url 'Coffee:index' %}">Home</a>
             </li>
             <li class="nav-item px-1">
-                <a class="nav-link active" href="{% url 'Coffee:artworkHome' %}">Artwork</a>
+                <a class="nav-link active" href="{% url 'Coffee:recipeHome' %}">Recipe</a>
             </li>
             <li class="nav-item px-1">
                 <a class="nav-link" href="{% url 'Coffee:writtenPieceHome' %}">Written Pieces</a>
@@ -53,11 +53,11 @@
     <div class="container text-center m-auto w-100">
         {# Title #}
         <div class="jumbotron p-2">
-            <h1 class="display-3">{{ artwork.title }}</h1>
+            <h1 class="display-3">{{ recipe.title }}</h1>
         </div>
 
         {# Image #}
-        <img class="img-fluid rounded w-100" src="{{ artwork.image }}" alt="Artwork Image">
+        <img class="img-fluid rounded w-100" src="{{ recipe.image }}" alt="Recipe Image">
 
 
         {# Author, Upvotes #}
@@ -65,16 +65,16 @@
             <div class="mt-2 bg-dark rounded">
                 <div class="d-flex justify-content-center flex-wrap p-4">
                     <ul class="m-auto list-group">
-                        <li class="list-group-item">{{ artwork.author }}</li>
+                        <li class="list-group-item">{{ recipe.author }}</li>
                     </ul>
                     <div class="m-auto">
-                        <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ artwork.likes }}
+                        <p class="my-auto bg-success text-light d-inline-block rounded px-3 py-2">{{ recipe.likes }}
                             Upvotes</p>
                     </div>
                 </div>
                 <div class="mb-5 p-4">
                     {# Add Upvote #}
-                    <form action="{% url 'Coffee:artworkLike' artwork.id %}" method="post" id="likeForm">
+                    <form action="{% url 'Coffee:recipeLike' recipe.id %}" method="post" id="likeForm">
                         {% csrf_token %}
                         <div class="row mx-auto justify-content-center">
                             <div class="px-1 my-auto">
@@ -92,15 +92,15 @@
         {# Description #}
         <div class="flex main-element">
             <div>
-                <h1>{{ artwork.title }}</h1>
-                <p class="p-2">{{ artwork.statement }}</p>
+                <h1>{{ recipe.title }}</h1>
+                <p class="p-2">{{ recipe.statement }}</p>
             </div>
         </div>
     </div>
 
     {# Comments #}
     <div>
-        <form action="{% url 'Coffee:artworkComment' artwork.id %}" method="post" id="commentForm">
+        <form action="{% url 'Coffee:recipeComment' recipe.id %}" method="post" id="commentForm">
             {% csrf_token %}
             {{ commentForm }}
             <input type="submit" value="Add Comment" class="btn btn-success btn-sm">
