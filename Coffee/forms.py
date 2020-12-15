@@ -8,5 +8,5 @@ class CaptchaForm(forms.Form):
 
 class CommentForm(forms.Form):
     captcha = CaptchaField()
-    author = forms.CharField(label='Username', max_length=100)
-    comment = forms.CharField(label='Comment', max_length=500)
+    author = forms.CharField(max_length=100)
+    comment = forms.CharField(max_length=500)
