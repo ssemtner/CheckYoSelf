@@ -93,8 +93,19 @@
         <div class="m-4">
             <form action="{% url 'Coffee:writtenPieceComment' written.id %}" method="post" id="commentForm">
                 {% csrf_token %}
-                {{ commentForm }}
-                <input type="submit" value="Add Comment" class="btn btn-success btn-sm">
+                <div class="form-item">
+                    {{ commentForm.captcha }}
+                </div>
+                <div class="form-item">
+                    {{ commentForm.author }}
+                </div>
+                <div class="form-item">
+                    {{ commentForm.comment }}
+                </div>
+                <div class="form-item">
+                    <input type="submit" value="Add Comment" class="btn btn-success btn-sm">
+                </div>
+                
             </form>
             <ul>
                 {% for comment in comments_ordered %}
