@@ -33,6 +33,8 @@ class WrittenPiece(models.Model):
     text = HTMLField()
     likes = models.IntegerField(default=0)
     thumbnail = models.URLField(max_length=200)
+    type = models.CharField(max_length=20, choices=[('Op-Ed', 'Op-Ed'), ('Historical Fiction', 'Historical Fiction')],
+                            default="Op-Ed")
 
     def like(self):
         self.likes += 1
