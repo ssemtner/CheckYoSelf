@@ -19,17 +19,17 @@
 </head>
 <body>
 
-    {# Main nav for all pages #}
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <div class="navbar-nav">
-            <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
-            <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-            <a class="nav-item nav-link active" href="{% url 'Coffee:index' %}">Coffee</a>
-            <a class="nav-item nav-link" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
-            <a class="nav-item nav-link" href="{% url 'Chemicals:index' %}">Controversial Chemicals</a>
-        </div>
-    </nav>
-    <div class="p-4 extra-padding"></div>
+{# Main nav for all pages #}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-nav">
+        <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
+        <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+        <a class="nav-item nav-link active" href="{% url 'Coffee:index' %}">Coffee</a>
+        <a class="nav-item nav-link" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
+        <a class="nav-item nav-link" href="{% url 'Chemicals:index' %}">Controversial Chemicals</a>
+    </div>
+</nav>
+<div class="p-4 extra-padding"></div>
 
 <div class="row w-100">
     <div class="col">
@@ -52,27 +52,41 @@
     <div class="col"></div>
 </div>
 
-    <main>
-        <div class="mx-4 row">
-            {% for recipe in recipe_list %}
-                <div class="m-auto">
-                    <div class="card shadow m-3">
-                        <img src="{{ recipe.thumbnail }}" class="card-img-top img-fluid" alt="Recipe Photo"
-                             style="max-width: 300px;">
-                        <div class="card-body">
-                            <h3 class="card-title text-center">{{ recipe.title }}</h3>
-                            <h5 class="card-subtitle font-weight-light text-center">{{ recipe.name }}</h5>
-                            <a href="{% url 'Coffee:recipe' recipe.id %}" class="btn btn-primary d-block mt-4">Read
-                                More</a>
-                        </div>
+<main>
+    <div class="mx-4 row">
+        {% for recipe in recipe_list %}
+            <div class="m-auto">
+                <div class="card shadow m-3">
+                    <img src="{{ recipe.thumbnail }}" class="card-img-top img-fluid" alt="Recipe Photo"
+                         style="max-width: 300px;">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">{{ recipe.title }}</h3>
+                        <h5 class="card-subtitle font-weight-light text-center">{{ recipe.name }}</h5>
+                        <a href="{% url 'Coffee:recipe' recipe.id %}" class="btn btn-primary d-block mt-4">Read
+                            More</a>
                     </div>
                 </div>
-            {% endfor %}
+            </div>
+        {% endfor %}
+        <div class="m-auto">
+            <div class="card shadow m-3">
+                <img src="https://img.youtube.com/vi/ar_dS0ntuok/default.jpg" class="card-img-top img-fluid"
+                     alt="Recipe Photo"
+                     style="max-width: 300px;">
+                <div class="card-body">
+                    <h3 class="card-title text-center">Persian Tea</h3>
+                    <h5 class="card-subtitle font-weight-light text-center">Armin Brumand</h5>
+                    <a target="_blank" href="https://www.youtube.com/watch?v=ar_dS0ntuok&feature=emb_logo"
+                       class="btn btn-primary d-block mt-4">Read
+                        More</a>
+                </div>
+            </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    {# Footer that goes on every page #}
-    <footer class="mt-5">
+{# Footer that goes on every page #}
+<footer class="mt-5">
     <div class="container mt-5 mb-5">
         <a href="#" class="float-right"><p class="text-primary">Back To Top</p></a>
         <p class="m-3">Created by Mitchell L. and Scott S.</p>
