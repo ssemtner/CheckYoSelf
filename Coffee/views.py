@@ -98,7 +98,7 @@ def search_result(request):
                 )
                 return render(request, 'Coffee/written_piece_home.html', {'written_list': written_list})
             elif form.cleaned_data['type'] == 'r':
-                recipe_list = WrittenPiece.objects.filter(
+                recipe_list = Recipe.objects.filter(
                     Q(title__contains=form.cleaned_data['text']) |
                     Q(author__contains=form.cleaned_data['text'])
                 )
