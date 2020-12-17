@@ -1,4 +1,3 @@
-venv/
-.vscode/
-.idea/
-CheckYoSelf/secrets.py
+/venv/
+/vscode
+.idea
