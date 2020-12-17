@@ -55,16 +55,23 @@
     <div class="col"></div>
 </div>
 
-<section class="jumbotron px-md-5 w-75 mx-auto my-3 shadow-sm">
-    <form action="{% url 'Coffee:searchResult' %}" method="post" id="form">
+<section class="jumbotron px-md-5 w-75 mx-auto my-3 shadow-sm bg-dark">
+    <div class="row">
+        <div class="col text-left">
+            <h1 class="font-weight-light text-light">Search</h1>
+        </div>
+    </div>
+    <form action="{% url 'Coffee:searchResult' %}" method="post" id="form" class="m-4">
         {% csrf_token %}
-        <div class="px-md-5">
-            <div class="row">
-                <div class="col text-left">
-                    <h1 class="font-weight-light text-dark">Search</h1>
-                </div>
+        <div> 
+            <div class="form-item">
+                <label for="text">Term:</label>
+                {{ form.text }}
             </div>
-            {{ form }}
+            <div class="form-item">
+                <label for="text">Search By:</label>
+                {{ form.type }}
+            </div>
             <div class="row">
                 <div class="col">
                     <input type="submit" value="Search" class="shadow btn btn-primary mt-3">
