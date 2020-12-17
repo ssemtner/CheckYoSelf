@@ -52,7 +52,7 @@
     <div class="col"></div>
 </div>
 
-<main>
+<main class="recipe-home">
     <div class="mx-4 row">
         {% for recipe in recipe_list %}
             <div class="m-auto">
@@ -61,7 +61,7 @@
                          style="max-width: 300px;">
                     <div class="card-body">
                         <h3 class="card-title text-center">{{ recipe.title }}</h3>
-                        <h5 class="card-subtitle font-weight-light text-center">{{ recipe.name }}</h5>
+                        <h5 class="card-subtitle font-weight-light text-center">{{ recipe.author }}</h5>
                         <a href="{% url 'Coffee:recipe' recipe.id %}" class="btn btn-primary d-block mt-4">Read
                             More</a>
                     </div>
