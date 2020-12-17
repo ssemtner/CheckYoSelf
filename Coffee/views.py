@@ -98,7 +98,10 @@ def search_result(request):
                 )
                 return render(request, 'Coffee/written_piece_home.html', {'written_list': written_list})
             elif form.cleaned_data['type'] == 'r':
-                recipe_list = Recipe.objects.filter(author__contains=form.cleaned_data['text'])
+                recipe_list = WrittenPiece.objects.filter(
+                    Q(title__contains=form.cleaned_data['text']) |
+                    Q(author__contains=form.cleaned_data['text'])
+                )
                 return render(request, 'Coffee/recipe_home.html', {'recipe_list': recipe_list})
 
     return redirect('Coffee:search')
