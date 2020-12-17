@@ -14,4 +14,4 @@ class CommentForm(forms.Form):
 
 class SearchForm(forms.Form):
     text = forms.CharField(max_length=100)
-    type = forms.ChoiceField(choices=[('r', 'Recipe'), ('w', 'Written Piece')])
+    type = forms.ChoiceField(choices=[('w', 'Written Piece'), ('r', 'Recipe')])

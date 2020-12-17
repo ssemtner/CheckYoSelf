@@ -93,14 +93,14 @@ def search_result(request):
             print(form.cleaned_data)
             if form.cleaned_data['type'] == 'w':
                 written_list = WrittenPiece.objects.filter(
-                    Q(title__contains=form.cleaned_data['text']) |
-                    Q(author__contains=form.cleaned_data['text'])
+                    Q(title__contains=form.cleaned_data['text'].title()) |
+                    Q(author__contains=form.cleaned_data['text'].title())
                 )
                 return render(request, 'Coffee/written_piece_home.html', {'written_list': written_list})
             elif form.cleaned_data['type'] == 'r':
                 recipe_list = Recipe.objects.filter(
-                    Q(title__contains=form.cleaned_data['text']) |
-                    Q(author__contains=form.cleaned_data['text'])
+                    Q(title__contains=form.cleaned_data['text'].title()) |
+                    Q(author__contains=form.cleaned_data['text'].title())
                 )
                 return render(request, 'Coffee/recipe_home.html', {'recipe_list': recipe_list})
 
