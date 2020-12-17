@@ -1,7 +1,8 @@
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from profanityfilter import ProfanityFilter
 
-from .forms import CaptchaForm, CommentForm
+from .forms import CaptchaForm, CommentForm, SearchForm
 from .models import Recipe, RecipeComment, WrittenPiece, WrittenPieceComment
 
 pf = ProfanityFilter(extra_censor_list=open('Coffee/profanity_list.txt', 'r').read().split('\n'))
@@ -46,9 +47,9 @@ def recipe_comment(request, recipe_id):
 
 
 def written(request, written_id):
-    written = get_object_or_404(WrittenPiece, pk=written_id)
-    context = {'written': written, 'likeForm': CaptchaForm, 'commentForm': CommentForm,
-               'comments_ordered': written.comments.all().order_by('-timestamp')}
+    w = get_object_or_404(WrittenPiece, pk=written_id)
+    context = {'written': w, 'likeForm': CaptchaForm, 'commentForm': CommentForm,
+               'comments_ordered': w.comments.all().order_by('-timestamp')}
     return render(request, 'Coffee/written_piece.html', context)
 
 
@@ -78,3 +79,26 @@ def written_comment(request, written_id):
                                     body=form.cleaned_data['comment']).save()
 
     return redirect('Coffee:writtenPiece', written_id=written_id)
+
+
+def search(request):
+    return render(request, 'Coffee/search.html', {'form': SearchForm()})
+
+
+def search_result(request):
+    if request.POST:
+        form = SearchForm(request.POST)
+
+        if form.is_valid():
+            print(form.cleaned_data)
+            if form.cleaned_data['type'] == 'w':
+                written_list = WrittenPiece.objects.filter(
+                    Q(title__contains=form.cleaned_data['text']) |
+                    Q(author__contains=form.cleaned_data['text'])
+                )
+                return render(request, 'Coffee/written_piece_home.html', {'written_list': written_list})
+            elif form.cleaned_data['type'] == 'r':
+                recipe_list = Recipe.objects.filter(author__contains=form.cleaned_data['text'])
+                return render(request, 'Coffee/recipe_home.html', {'recipe_list': recipe_list})
+
+    return redirect('Coffee:search')
