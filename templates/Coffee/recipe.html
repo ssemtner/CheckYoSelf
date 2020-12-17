@@ -60,8 +60,8 @@
         <img class="img-fluid rounded w-100" src="{{ recipe.image }}" alt="Recipe Image">
 
 
-        {# Author, Upvotes #}
         <div class="m-auto">
+            {# Author, Upvotes #}
             <div class="mt-2 bg-dark rounded">
                 <div class="d-flex justify-content-center flex-wrap p-4">
                     <ul class="m-auto list-group">
@@ -86,30 +86,35 @@
                         </div>
                     </form>
                 </div>
+
+                {# Comments #}
+                <h4 class="text-white">Comments</h4>
+                <div class="rounded p-4 bg-dark">
+                    <form action="{% url 'Coffee:recipeComment' recipe.id %}" method="post" id="commentForm">
+                        {% csrf_token %}
+                        <div class="form-item">
+                            {{ commentForm.captcha }}
+                        </div>
+                        <div class="form-item">
+                            <label for="author">Name: </label>
+                            {{ commentForm.author }}
+                        </div>
+                        <div class="form-item">
+                            <label for="author">Comment: </label>
+                            {{ commentForm.comment }}
+                        </div>
+                        <div class="form-item">
+                            <input type="submit" value="Add Comment" class="btn btn-success btn-sm">
+                        </div>
+                    </form>
+                    <ul class="bg-light comments rounded">
+                        {% for comment in comments_ordered %}
+                            <li><b>{{ comment.author }}:</b> {{ comment.body }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
-
-        {# Description #}
-        <div class="flex main-element">
-            <div>
-                <h1>{{ recipe.title }}</h1>
-                <p class="p-2">{{ recipe.statement }}</p>
-            </div>
-        </div>
-    </div>
-
-    {# Comments #}
-    <div>
-        <form action="{% url 'Coffee:recipeComment' recipe.id %}" method="post" id="commentForm">
-            {% csrf_token %}
-            {{ commentForm }}
-            <input type="submit" value="Add Comment" class="btn btn-success btn-sm">
-        </form>
-        <ul>
-            {% for comment in comments_ordered %}
-                <ul><b>By: {{ comment.author }}</b> {{ comment.body }}</ul>
-            {% endfor %}
-        </ul>
     </div>
 </main>
 
