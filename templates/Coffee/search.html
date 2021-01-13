@@ -24,6 +24,7 @@
     <div class="navbar-nav">
         <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
         <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+        <a class="nav-item nav-link" href="{% url 'Elements:index' %}">Elements</a>
         <a class="nav-item nav-link active" href="{% url 'Coffee:index' %}">Coffee</a>
         <a class="nav-item nav-link" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
         <a class="nav-item nav-link" href="{% url 'Chemicals:index' %}">Controversial Chemicals</a>
@@ -63,7 +64,7 @@
     </div>
     <form action="{% url 'Coffee:searchResult' %}" method="post" id="form" class="m-4">
         {% csrf_token %}
-        <div> 
+        <div>
             <div class="form-item">
                 <label for="text">Term:</label>
                 {{ form.text }}

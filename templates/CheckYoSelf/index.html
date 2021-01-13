@@ -1,92 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta content="" name="description">
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="" name="description">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-        <!-- jQuery and JS bundle w/ Popper.js -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
 
-        <title>Check Yo Self</title>
-        <link rel="stylesheet" href="https://fuchsiaviciouskeygen.mitchelllong.repl.co/style.css">
-    </head>
-    <body>
-        {# Main nav for all pages #}
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-            <div class="navbar-nav">
-                <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
-                <a class="nav-item nav-link active" href="{% url 'home' %}">Home</a>
-                <a class="nav-item nav-link" href="{% url 'Coffee:index' %}">Coffee</a>
-                <a class="nav-item nav-link" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
-                <a class="nav-item nav-link" href="{% url 'Chemicals:index' %}">Controversial Chemicals</a>
-            </div>
-        </nav>
-    <div>
-        <header class="mw-100 w-100">
-            <div class="jumbotron text-center jumbotron-fluid">
-                <div class="container">
-                    <h1 class="display-1">HTHM Sophomores 2020</h1>
-                    <h2 class="font-weight-light">Our Projects throughout the semester</h2>
-                    <div class="mx-auto d-inline-block">
-                        <div class="row">
-                            <a href="#main" class="btn btn-secondary my-4 mx-3 d-block">View Projects</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <main id="main">
+    <title>Check Yo Self</title>
+    <link rel="stylesheet" href="https://fuchsiaviciouskeygen.mitchelllong.repl.co/style.css">
+</head>
+<body>
+{# Main nav for all pages #}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-nav">
+        <a class="navbar-brand" href="{% url 'home' %}">Check Yo Self</a>
+        <a class="nav-item nav-link active" href="{% url 'home' %}">Home</a>
+        <a class="nav-item nav-link" href="{% url 'Elements:index' %}">Elements</a>
+        <a class="nav-item nav-link" href="{% url 'Coffee:index' %}">Coffee</a>
+        <a class="nav-item nav-link" href="{% url 'BallotMeasures:index' %}">Ballot Measures</a>
+        <a class="nav-item nav-link" href="{% url 'Chemicals:index' %}">Controversial Chemicals</a>
+    </div>
+</nav>
+<div>
+    <header class="mw-100 w-100">
+        <div class="jumbotron text-center jumbotron-fluid">
             <div class="container">
-                <div class="row flex-wrap main-page-projects">
-                    <div class="col m-auto">
-                        <div class="card shadow">
-                            <img src="https://raw.githubusercontent.com/mitchell-lng/Exhibition-Site-2020/master/assets/website/ballotmeasuresposters.jpg"
-                                 alt="Image" class="card-img-top">
-                            <div class="card-body">
-                                <h1 class="text-center font-weight-light">Ballot Measure Project</h1>
-                                <p class="card-text">Each student was assigned a partner and a proposition based on their preferences. We dived deep into the propositions, the topic of the propositions, and the history surrounding that topic. Each partner took a side and as we learned we created our opinions and arguments. The result was a poster each partnership made in an effort to inform likely voters and share the keen awareness we had all gained. Wake up, vote, and take a look at the Ballot Measure Poster project...</p>
-                                <a class="btn btn-primary d-block" href="{% url 'BallotMeasures:index' %}">Read More</a>
-                            </div>
+                <h1 class="display-1">HTHM Sophomores 2020</h1>
+                <h2 class="font-weight-light">Our Projects throughout the semester</h2>
+                <div class="mx-auto d-inline-block">
+                    <div class="row">
+                        <a href="#main" class="btn btn-secondary my-4 mx-3 d-block">View Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="container">
+            <div class="row flex-wrap main-page-projects">
+                <div class="col-12 col-md-6 m-auto">
+                    <div class="card shadow">
+                        <img src="https://www.philipharris.co.uk/media/1924/periodic-table-header-v2-min.png?format=webp&anchor=center&mode=crop&width=2220&rnd=131931602780000000&quality=50"
+                             alt="Image" class="card-img-top">
+                        <div class="card-body">
+                            <h1 class="text-center font-weight-light">Elements Project</h1>
+                            <p class="card-text">PLEASE ADD A DESCRIPTION HERE</p>
+                            <a class="btn btn-primary d-block" href="{% url 'Elements:index' %}">Read More</a>
                         </div>
                     </div>
-                    <div class="col m-auto">
-                        <div class="card shadow">
-                            <img src="https://check-yo-self-css--mitchelllong.repl.co/coffeeImage.jpg" alt="Image"
-                                 class="card-img-top">
-                            <div class="card-body">
-                                <h1 class="text-center font-weight-light">Coffee Project</h1>
-                                <p class="card-text">We continued this semester with the theme of checking ourselves with the election and everyday chemicals to now checking our own consumption. Students learned and investigated the science behind making the second most traded commodity in the world, coffee. They then made hot drinks for their families during Exhibition sharing what they learned about the chemistry behind making the perfect cup of coffee.  Students also researched their favorite foods and decided whether it was problematic or not based on evidence and reasoning. They wrote Op-Eds and historical fiction stories and in order to shed light on what is really in our cups, and on our plates.</p>
-                                <a class="btn btn-primary d-block" href="{% url 'Coffee:index' %}">Read More</a>
-                            </div>
+                </div>
+                <div class="col-12 col-md-6 m-auto">
+                    <div class="card shadow">
+                        <img src="https://check-yo-self-css--mitchelllong.repl.co/coffeeImage.jpg" alt="Image"
+                             class="card-img-top">
+                        <div class="card-body">
+                            <h1 class="text-center font-weight-light">Coffee Project</h1>
+                            <p class="card-text">We continued this semester with the theme of checking ourselves with
+                                the election and everyday chemicals to now checking our own consumption. Students
+                                learned and investigated the science behind making the second most traded commodity in
+                                the world, coffee. They then made hot drinks for their families during Exhibition
+                                sharing what they learned about the chemistry behind making the perfect cup of coffee.
+                                Students also researched their favorite foods and decided whether it was problematic or
+                                not based on evidence and reasoning. They wrote Op-Eds and historical fiction stories
+                                and in order to shed light on what is really in our cups, and on our plates.</p>
+                            <a class="btn btn-primary d-block" href="{% url 'Coffee:index' %}">Read More</a>
                         </div>
                     </div>
-                    <div class="col m-auto">
-                        <div class="card shadow">
-                            <img src="https://exhibition-site-2020.mitchelllong2.repl.co/assets/website/chemicalposters.jpg"
-                                 alt="Image" class="card-img-top">
-                            <div class="card-body">
-                                <h1 class="text-center font-weight-light">Controversial Chemicals Project</h1>
-                                <p class="card-text">Radium used to be in our watches so they could be seen at night. Which by itself wasn't deadly but would have been nice to know. What was, in fact, deadly was the direct exposure that the “Radium Girls” suffered while producing these watches. And boy did their jaws drop when they found out. Literally, because of radiation poisoning their jaws fell off. In an effort to keep our jaws, we set out to investigate the chemicals around us.</p>
-                                <a class="btn btn-primary d-block" href="{% url 'Chemicals:index' %}">Read More</a>
-                            </div>
+                </div>
+                <div class="col-12 col-md-6 m-auto">
+                    <div class="card shadow">
+                        <img src="https://raw.githubusercontent.com/mitchell-lng/Exhibition-Site-2020/master/assets/website/ballotmeasuresposters.jpg"
+                             alt="Image" class="card-img-top">
+                        <div class="card-body">
+                            <h1 class="text-center font-weight-light">Ballot Measure Project</h1>
+                            <p class="card-text">Each student was assigned a partner and a proposition based on their
+                                preferences. We dived deep into the propositions, the topic of the propositions, and the
+                                history surrounding that topic. Each partner took a side and as we learned we created
+                                our opinions and arguments. The result was a poster each partnership made in an effort
+                                to inform likely voters and share the keen awareness we had all gained. Wake up, vote,
+                                and take a look at the Ballot Measure Poster project...</p>
+                            <a class="btn btn-primary d-block" href="{% url 'BallotMeasures:index' %}">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 m-auto">
+                    <div class="card shadow">
+                        <img src="https://exhibition-site-2020.mitchelllong2.repl.co/assets/website/chemicalposters.jpg"
+                             alt="Image" class="card-img-top">
+                        <div class="card-body">
+                            <h1 class="text-center font-weight-light">Controversial Chemicals Project</h1>
+                            <p class="card-text">Radium used to be in our watches so they could be seen at night. Which
+                                by itself wasn't deadly but would have been nice to know. What was, in fact, deadly was
+                                the direct exposure that the “Radium Girls” suffered while producing these watches. And
+                                boy did their jaws drop when they found out. Literally, because of radiation poisoning
+                                their jaws fell off. In an effort to keep our jaws, we set out to investigate the
+                                chemicals around us.</p>
+                            <a class="btn btn-primary d-block" href="{% url 'Chemicals:index' %}">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
-
-        <footer class="mt-5">
-            <div class="container mt-5 mb-5">
-                <a href="#" class="float-right"><p class="text-primary">Back To Top</p></a>
-                    <p class="m-3">Created by Mitchell L. and Scott S.</p>
-                    <p class="m-3">Created Using <a href="https://www.djangoproject.com/" target="_blank" class="d-inline">Django</a> and <a href="https://getbootstrap.com/" target="_blank" class="d-inline">Bootstrap</a></p>
-                </div>
-            </footer>
         </div>
-    </body>
+    </main>
+
+    <footer class="mt-5">
+        <div class="container mt-5 mb-5">
+            <a href="#" class="float-right"><p class="text-primary">Back To Top</p></a>
+            <p class="m-3">Created by Mitchell L. and Scott S.</p>
+            <p class="m-3">Created Using <a href="https://www.djangoproject.com/" target="_blank" class="d-inline">Django</a>
+                and <a href="https://getbootstrap.com/" target="_blank" class="d-inline">Bootstrap</a></p>
+        </div>
+    </footer>
+</div>
+</body>
 </html>
