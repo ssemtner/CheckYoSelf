@@ -23,7 +23,7 @@ urlpatterns = [
     path('ballotmeasures/', include('BallotMeasures.urls')),
     path('coffee/', include('Coffee.urls')),
     path('chemicals/', include('Chemicals.urls')),
-    # path('Coffee/', include('Coffee.urls')),
+    path('elements/', include('Elements.urls')),
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
     path('captcha/', include('captcha.urls')),

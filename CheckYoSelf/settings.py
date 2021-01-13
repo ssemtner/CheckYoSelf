@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'BallotMeasures',
     'Chemicals',
     'Coffee',
+    'Elements',
     'captcha',
     'tinymce',
     'django.contrib.admin',
